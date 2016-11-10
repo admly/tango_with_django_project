@@ -12,15 +12,31 @@
 
     <div>
     {% if categories %}
+    <strong>MOST LIKED CATEGORIES  !!</strong>
     <ul>
       {% for category in categories %}
-        <li>{{ category.name }}</li>
+        <li><a href="/rango/category/{{ category.slug }}">{{ category.name }}</a></li>
       {% endfor %}
     </ul>
     {% else %}
       <strong>There are no categories present.</strong>
     {% endif %}
     </div>
+
+
+    <div>
+    {% if pages %}
+    <strong>MOST VIEWED PAGES  !!</strong>
+    <ul>
+      {% for page in pages %}
+          <li><a href="{{ page.url }}">{{ page.title }}</a></li>
+      {% endfor %}
+    </ul>
+    {% else %}
+      <strong>There are no categories present.</strong>
+    {% endif %}
+    </div>
+
 
     <div>
      <a href="/rango/about/">About</a><br />
