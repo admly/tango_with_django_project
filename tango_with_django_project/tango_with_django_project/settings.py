@@ -42,7 +42,7 @@ INSTALLED_APPS = [
     'rango',
 ]
 
-MIDDLEWARE = [
+MIDDLEWARE_CLASSES = [  # in django 1.10 should be MIDDLEWARE
     'django.middleware.security.SecurityMiddleware',
     'django.contrib.sessions.middleware.SessionMiddleware',
     'django.middleware.common.CommonMiddleware',
