@@ -1,0 +1,1 @@
+Repo with django powered site created during learning from "Tango with Django" book.
