@@ -29,6 +29,10 @@ def index(request):
 def about(request):
     return render(request, 'rango/about.html')
 
+def show_all_categories(request):
+    category_list = Category.objects.all()
+    context_dict = {'categories': category_list,}
+    return render(request, 'rango/categories.html', context_dict)
 
 def show_category(request, category_name_slug):
     # Create a context dictionary which we can pass
