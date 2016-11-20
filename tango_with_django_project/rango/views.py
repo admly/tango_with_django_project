@@ -119,7 +119,7 @@ def track_url(request):
     url = '/rango/'
     if request.method == 'GET':
         if 'page_id' in request.GET:
-                page_id = request.GET['page_id']
+            page_id = request.GET['page_id']
     try:
         page = Page.objects.get(id=page_id)
         page.views = page.views + 1
