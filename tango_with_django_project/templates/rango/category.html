@@ -28,7 +28,14 @@
     {% else %}
       The specified category does not exist!
     {% endif %}
+
+
   {% if user.is_authenticated %}
-  <strong><div><a href = "/rango/category/{{category.slug}}/add_page"> Add a page</div></strong>
+      <div> <strong id="like_count">{{ category.likes }}</strong> people like this category
+          <button id="likes" data-catid="{{category.id}}"
+            class="btn btn-primary btn-sm" type="button"> Like
+          </button>
+      </div>
+        <strong><div><a href = "/rango/category/{{category.slug}}/add_page"> Add a page</div></strong>
   {% endif %}
 {% endblock %}

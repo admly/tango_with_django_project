@@ -20,4 +20,7 @@ urlpatterns = [
     url(r'^accounts/register/$', MyRegistrationView.as_view(), name='registration_register'),
     url(r'^profile/(?P<username>[\w\-]+)/$', views.profile, name='profile'),
     url(r'^profiles/$', views.list_profiles, name='list_profiles'),
+    url(r'^like/$', views.like_category, name='like_category'),
+    url(r'^suggest/$', views.suggest_category, name='suggest_category'),
+
 ]
