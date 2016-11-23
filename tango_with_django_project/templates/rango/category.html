@@ -28,10 +28,9 @@
     {% else %}
       The specified category does not exist!
     {% endif %}
-
-
+    <div> <strong id="like_count">{{ category.likes }}</strong> people like this category
   {% if user.is_authenticated %}
-      <div> <strong id="like_count">{{ category.likes }}</strong> people like this category
+
           <button id="likes" data-catid="{{category.id}}"
             class="btn btn-primary btn-sm" type="button"> Like
           </button>
