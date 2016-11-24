@@ -1,20 +1,74 @@
-{% extends "rango/base.html" %}
-{% block body_block %}
-  <link href="http://v4-alpha.getbootstrap.com/examples/signin/signin.css"
-  rel="stylesheet">
-  <div class="jumbotron">
-    <h1 class="display-3">Login</h1>
+{% load staticfiles %}
+<html>
+<body>
+  <!-- Bootstrap core CSS -->
+<link href="http://getbootstrap.com/dist/css/bootstrap.min.css" rel="stylesheet">
+<nav class="navbar navbar-inverse navbar-fixed-top">
+  <div class="container-fluid">
+    <div class="navbar-header">
+  <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#navbar" aria-expanded="false" aria-controls="navbar">
+    <span class="sr-only">Toggle navigation</span>
+    <span class="icon-bar"></span>
+    <span class="icon-bar"></span>
+    <span class="icon-bar"></span>
+  </button>
+
+  <a class="navbar-brand" href="#">Rango</a>
+</div>
+   <div id="navbar" class="navbar-collapse collapse">
+    <ul class="nav navbar-nav pull-xs-left">
+      <li><a href="{% url 'index' %}">Home</a></li>
+      <li><a href="{% url 'about' %}">About</a></li>
+      <li><a  href="{% url 'categories' %}">All categories</a></li>
+  {% if user.is_authenticated %}
+    <li><a  href="{% url 'add_category' %}">Add a New Category</a></li>
+    <li><a  href="{% url 'profile' user.username %}">Profile</a></li>
+    <li><a  href="{% url 'list_profiles' %}">List Profiles</a></li>
+    <li><a  href="{% url 'auth_logout' %}?next=/rango/">Logout</a></li>
+  {% else %}
+    <li><a  href="{% url 'registration_register' %}">Register Here</a></li>
+    <li><a href="{% url 'auth_login' %}">Login</a></li>
+  {% endif %}
   </div>
-  <form class="form-signin" role="form" method="post" action=".">
-    {% csrf_token %}
-    <h2 class="form-signin-heading">Please sign in</h2>
-    <label for="inputUsername" class="sr-only">Username</label>
-    <input type="text" name="username" id="id_username" class="form-control"
-    placeholder="Username" required autofocus>
-    <label for="inputPassword" class="sr-only">Password</label>
-    <input type="password" name="password" id="id_password" class="form-control"
-    placeholder="Password" required>
-    <button class="btn btn-lg btn-primary btn-block" type="submit"
-    value="Submit" />Sign in</button>
-  </form>
-{% endblock %}
+</div>
+</nav>
+
+
+
+
+
+
+
+<link href="http://getbootstrap.com/examples/signin/signin.css"
+rel="stylesheet">
+<form class="form-signin" role="form" method="post" action=".">
+  {% csrf_token %}
+  <h2 class="form-signin-heading">Please sign in</h2>
+  <label for="inputUsername" class="sr-only">Username</label>
+  <input type="text" name="username" id="id_username" class="form-control"
+  placeholder="Username" required autofocus>
+  <label for="inputPassword" class="sr-only">Password</label>
+  <input type="password" name="password" id="id_password" class="form-control"
+  placeholder="Password" required>
+  <button class="btn btn-lg btn-primary btn-block" type="submit"
+  value="Submit" />Sign in</button>
+</form>
+<!-- Bootstrap core JavaScript
+================================================== -->
+<!-- Placed at the end of the document so the pages load faster -->
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.0.0/jquery.min.js"></script>
+
+<!--
+<script>window.jQuery || document.write('<script src="../../assets/js/vendor/jquery.min.js"><\/script>')</script>
+-->
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
+<script src="http://getbootstrap.com/dist/js/bootstrap.min.js"></script>
+<!-- Just to make our placeholder images work. Don't actually copy the next line! -->
+ <script src="http://getbootstrap.com/assets/js/vendor/holder.min.js"></script>
+<!-- IE10 viewport hack for Surface/desktop Windows 8 bug -->
+<script src="http://getbootstrap.com/assets/js/ie10-viewport-bug-workaround.js"></script>
+<script src="{% static "js/rango-jquery.js" %}"></script>
+</body>
+</html>
+
+</html>
