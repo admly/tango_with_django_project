@@ -4,6 +4,8 @@
 {% endblock %}
 {% block body_block %}
   <h1>Registration - Step 2</h1>
+  <h1>Please add your website and profile picture, </h1>
+  <h1>or skip by click on "Submit".</h1>
     <form method="post" action="." enctype="multipart/form-data">
     {% csrf_token %}
       {{ form.as_p }}
